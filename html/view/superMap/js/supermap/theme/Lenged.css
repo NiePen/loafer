@@ -1,0 +1,74 @@
+@CHARSET "UTF-8";
+
+* {
+	margin: 0;
+	padding: 0;
+}
+
+html,body {
+	margin: 0px 0px 0px 0px;
+	padding: 0px 0px 0px 0px;
+}
+
+div,td,tr,table {
+	margin: 0px 0px 0px 0px;
+	padding: 0px 0px 0px 0px;
+	border-collapse: collapse;
+}
+
+.legendtable {
+	font-size: 12px;
+	font-family: '宋体';
+	border-bottom: 0px solid #98BB9F;
+	border-right: 0px solid #98BB9F;
+	border-left: 0px solid #98BB9F;
+	border-top: 0px solid #98BB9F;
+	width: 100%;
+}
+
+.legendtable td {
+	border-left: 0px solid #98BB9F;
+	border-bottom: 0px solid #98BB9F;
+	font-size: 12px;
+	font-family: '宋体';
+	text-align: left;
+}
+
+.legendtable th {
+	border-left: 0px solid #98BB9F;
+	border-bottom: 0px solid #98BB9F;
+	font-size: 12px;
+	font-family: '宋体';
+	text-align: center;
+}
+
+.legendtable tr {
+	height: 24px;
+}
+
+
+
+.Legendcontainer{
+	position: absolute;
+	bottom: 2px;
+	left: 11px;
+	width: 200px;
+	height: 200px;
+	overflow-y: auto;
+	overflow-x: hidden;
+	filter: alpha(Opacity = 80);
+}
+
+
+#aLenget {
+	border: 4px #BCD2EE solid;
+	width: 180px;
+	height: 200px;
+	background-color: #B2DFEE;
+}
+
+.bLenget {
+	height: 0px;
+	overflow: hidden;
+	border: 4px #BCD2EE solid;
+}

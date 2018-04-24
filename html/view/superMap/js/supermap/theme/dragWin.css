@@ -1,0 +1,10 @@
+@CHARSET "UTF-8";
+
+.dragWinContainer{position:absolute; padding:5px; background:#f0f3f9; font-size:12px; -moz-box-shadow:2px 2px 4px #666666; -webkit-box-shadow:2px 2px 4px #666666;z-index: 999;}
+.dragWinMain{border:1px solid #a0b3d6; background:white;}
+.dragWinTitle{line-height:24px; background:#4D88CA; border-bottom:1px solid #a0b3d6; padding-left:5px;padding-right:5px;color:white;}
+.dragWinContent{ padding:5px 5px;}
+
+.dragWin_MIN { position: absolute;right:28px;top:10px;}
+.dragWin_MAX { position: absolute;right:28px;top:10px}
+.dragWin_CLOSE { position: absolute;right:10px;top:10px}
