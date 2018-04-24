@@ -11,7 +11,7 @@ https://www.cnblogs.com/superGG1990/p/6844952.html
 Git命令：
 
 	基础命令：
-		git init					//初始化git
+		git init					//初始化git 
 		git clone 
 		git add	<文件名>			//添加需要提交的文件
 		git add .					//添加所有需要提交的文件
