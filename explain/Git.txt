@@ -5,7 +5,7 @@
 https://www.cnblogs.com/superGG1990/p/6844952.html
 
 ①要注意在输入命令时，路径是否在Git文件夹中。
-②在退出vim编辑器时，按住Esc，并按两下大写Z即可退出。 
+②在退出vim编辑器时，按住Esc，并按两下大写Z即可退出。
 ③命令行退出“>”，ctrl+d即可退出。
 
 Git命令：
