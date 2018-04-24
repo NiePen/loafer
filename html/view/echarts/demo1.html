@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>echarts</title>
+
+</head>
+<body style="background-color:black;">
+    <!-- 为ECharts准备一个具备大小（宽高）的Dom -->
+    <div id="main" style="width: 100%;height:800px;"></div>
+
+
+    <script src="../../js/jquery-2.1.1.js"></script>
+    <script src="../../js/index.js"></script>
+    <!-- 引入 echarts.js -->
+    <script type="text/javascript" src="js/echarts/echarts.js"></script>
+    <script type="text/javascript" src="js/liuan.js"></script>
+
+    <script type="text/javascript">
+        // 基于准备好的dom，初始化echarts实例
+        var myChart = echarts.init(document.getElementById('main'));
+
+        mytextStyle={
+            color:"#333",                //文字颜色
+            fontStyle:"normal",         //italic斜体  oblique倾斜
+            fontWeight:"normal",        //文字粗细bold   bolder   lighter  100 | 200 | 300 | 400...
+            fontFamily:"sans-serif",    //字体系列
+            fontSize:15,                 //字体大小
+        };
+
+        myitemStyle={
+            color:"rgba(0,0,0,0)",                //颜色
+            borderColor:"#3D547D",        //边框颜色
+            borderWidth:1,              //柱条的描边宽度，默认不描边。
+            borderType:"solid",         //柱条的描边类型，默认为实线，支持 'dashed', 'dotted'。
+            // barBorderRadius:0,          //柱形边框圆角半径，单位px，支持传入数组分别指定柱形4个圆角半径。
+            // shadowBlur:0,              //图形阴影的模糊大小。
+            // shadowColor:"#000",         //阴影颜色
+            // shadowOffsetX:0,            //阴影水平方向上的偏移距离。
+            // shadowOffsetY:0,            //阴影垂直方向上的偏移距离。
+            opacity:1                 //图形透明度。支持从 0 到 1 的数字，为 0 时不绘制该图形。
+        };
+		//设置一些可选的参数
+		option = {
+		    //设置背景颜色
+		    backgroundColor: '#000',
+		    //设置图片标题、子标题、文本颜色等等
+		    title: {
+		        text: 'echarts地图',
+		        subtext: '',
+		        left: 'center',
+		        textStyle: {
+		            color: '#000'
+		        }
+		    },
+		    tooltip : {
+		        trigger: 'item'
+		    },
+		    geo: {
+		        map: '六安',
+                label:{                                     //图形上的文本标签，可用于说明图形的一些数据信息，比如值，名称等
+                    normal:{    //默认样式
+                        show:false,                          //是否在普通状态下显示标签。
+                        textStyle:mytextStyle,              //普通状态下的标签文本样式。
+                    },
+                    emphasis:{      //强调样式
+                        show:true,                         //是否在高亮状态下显示标签。
+                        textStyle:mytextStyle              //高亮状态下的标签文本样式。
+                    }
+                },
+                itemStyle:{                                 //地图区域的多边形 图形样式
+                    normal:myitemStyle,
+                    emphasis:myitemStyle
+                },
+		        roam: true  //是否可以点击鼠标、滚轮缩放
+		    },
+		    //series就是要绘制的地图的主体。是一个数组，也就是说可以有多个数据进行绘制。这里有两个，一个是两个城市的连线，一个是对两个城市进行高亮显示。
+            // 其中的type是很重要的参数，主要有饼图、条形图、线、地图等等。具体的可以去参考官网上的配置手册。
+		    series : [
+		        {
+		            name: 'rode',
+		            type: 'lines',
+		            coordinateSystem: 'geo',
+		            effect: {
+		                show: true,
+		                color:'white',
+		                period: 4,	//时间
+		                symbol:'pin',
+		                symbolSize:5,
+		                trailLength: 0.5
+		            },
+		            lineStyle: {
+		                normal: {
+		                    // color: '#ECF50B',
+		                    width: 1,
+		                    opacity: 0.8,
+		                    curveness: 0.2,  //设置线的弯度
+		                    shadowColor: '#323318',		//设置阴影
+    						shadowBlur: 2
+		                }
+		            },
+                    tooltip:{
+		                show:false
+                    },
+                    data:[
+                        {fromName: "霍邱县",toName: "六安市",coords: [[116.26123,32.33744],[116.49435,31.75414]],lineStyle:{normal:{color:'#F4FF0A'}}},
+                        {fromName: "叶集区",toName: "六安市",coords: [[116.13592,31.84752],[116.49435,31.75414]],lineStyle:{normal:{color:'#FFBA0A'}}},
+                        {fromName: "金寨县",toName: "六安市",coords: [[115.85851,31.68547],[116.49435,31.75414]],lineStyle:{normal:{color:'#FF6727'}}},
+                        {fromName: "霍山县",toName: "六安市",coords: [[116.32131,31.40738],[116.49435,31.75414]],lineStyle:{normal:{color:'#15F9A3'}}},
+                        {fromName: "舒城县",toName: "六安市",coords: [[116.93929,31.45682],[116.49435,31.75414]],lineStyle:{normal:{color:'#4FFF2D'}}},
+                        {fromName: "裕安区",toName: "六安市",coords: [[116.47649,31.80014],[116.49435,31.75414]],lineStyle:{normal:{color:'#0034FF'}}},
+                        {fromName: "金安区",toName: "六安市",coords: [[116.52044,31.80564],[116.49435,31.75414]],lineStyle:{normal:{color:'#F70A24'}}}
+                    ]
+		        },
+		        {
+		            name: 'city',
+		            type: 'effectScatter',
+		            coordinateSystem: 'geo',    //使用坐标系
+		            zlevel:0,
+                    symbolSize: 5,     //设置圆点大小
+		            rippleEffect: {     //设置波纹样式
+		                period: 4,
+                        scale: 10,
+		                brushType: 'stroke'
+		            },
+		            label: {    //设置点的标注名称
+		                normal: {
+		                    show: true,
+                            position: 'top',
+                            distance: 10,
+		                    formatter: '{b}'
+		                }
+		            },
+                    tooltip:{
+                        show:false
+                    },
+		            data: [
+                        {name:"50",value:[116.26123,32.33744,"霍邱县"],itemStyle:{normal:{color:'#F4FF0A'}}},
+                        {name:"80",value:[116.13592,31.84752,"叶集区"],itemStyle:{normal:{color:'#FFBA0A'}}},
+                        {name:"46",value:[115.85851,31.68547,"金寨县"],itemStyle:{normal:{color:'#FF6727'}}},
+                        {name:"86",value:[116.32131,31.40738,"霍山县"],itemStyle:{normal:{color:'#15F9A3'}}},
+                        {name:"79",value:[116.93929,31.45682,"舒城县"],itemStyle:{normal:{color:'#4FFF2D'}}},
+                        {name:"66",value:[116.47649,31.80014,"裕安区"],itemStyle:{normal:{color:'#0034FF'}}},
+                        {name:"59",value:[116.52044,31.80564,"金安区"],itemStyle:{normal:{color:'#F70A24'}}},
+                        {name:"六安市",value:[116.49435,31.75414,"六安市"],symbol:'image://las.png',symbolSize:2}
+                    ]
+		        }
+		    ]
+		};
+
+		// 使用刚指定的配置项和数据显示图表。
+          myChart.setOption(option);
+
+		</script>
+</body>
+</html>
