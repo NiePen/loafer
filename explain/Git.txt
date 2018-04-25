@@ -1,7 +1,7 @@
 ﻿//建议使用NotePad查看此文件
 点击Alt + a 可以关闭波浪线
 学习网站：https://www.liaoxuefeng.com/wiki/0013739516305929606dd18361248578c67b8067c8c017b000
-从Git添加GitHub远程库时需要添加Git的公钥，添加公钥以及配置参考网站：
+从Git添加GitHub远程库时需要添加Git的公钥，添加公钥以及配置参考网站： 
 https://www.cnblogs.com/superGG1990/p/6844952.html
 
 ①要注意在输入命令时，路径是否在Git文件夹中。
