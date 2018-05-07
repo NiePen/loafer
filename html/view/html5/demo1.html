@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>loafer</title>
+    <style type="text/css">
+        .sk_canvas_bg{
+            background: url(images/sk_bg.jpg) repeat-x;
+        }
+    </style>
+</head>
+
+<body style="padding: 100px 0 0 400px;">
+
+    <canvas id="sksw_canvas" width="500" height="360" style="border-bottom:1px solid #7A8B8B;" class="sk_canvas_bg">你的浏览器不支持HTML5画布</canvas>
+
+<script src="../../js/jquery-2.1.1.js"></script>
+<script src="../../js/index.js"></script>
+<script src="js/sk_canvas_tool.js"></script>
+
+<script type="text/javascript">
+
+    window.onload = function(){
+        var feature = {data:{  state:0,    //状态
+                swData:{INQ: 0.177,INTERVAL_VAL: "0.",OTQ: null,OUTLIMIT: "0.", RZ: 2177.05, STCD: "01501790", TM: "2018-04-29 08:00:00", W: 8.442, WATER_STATE: 0},
+                bg: 25.4,
+                kr: 1540,
+                jh: 2179.13,
+                zc: 2178.6,
+                ssw: 2165.1,
+                sj: 2177.1
+            }};
+        drawCanvasContent(feature);
+    };
+
+</script>
+
+</body>
+</html>
