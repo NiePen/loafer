@@ -2,7 +2,7 @@
 $(document).ready(function(){
     setPageHeight();
     window.onresize=setPageHeight; //浏览器窗口发生变化时同时变化DIV高度
-})
+});
 
 function setPageHeight(){
 
